@@ -1,0 +1,103 @@
+body { 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+.border-container {
+    max-width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.border-container::before,
+.border-container::after {
+    content: '';
+    position: absolute;
+    top: -5px; /* Make this negative to create a visible border */
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 10px; /* Adjust for the increased size */
+    z-index: -1;
+    border: 5px solid transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.border-container:hover::before,
+.border-container:hover::after {
+    opacity: 1;
+    animation: border-animation 2s linear infinite;
+}
+
+.border-container::after {
+    animation-delay: 1s;
+}
+
+@keyframes border-animation {
+    0% { border-color: red; }
+    14% { border-color: orange; }
+    28% { border-color: yellow; }
+    42% { border-color: green; }
+    57% { border-color: blue; }
+    71% { border-color: indigo; }
+    85% { border-color: violet; }
+    100% { border-color: red; }
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input {
+    margin-right: 10px;
+    padding: 5px;
+    width: 100px;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+.result {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.clear-button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #71afc2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.clear-button:hover {
+    background-color: darkred;
+}
